@@ -1,2 +1,18 @@
-<h1>Home Page</h1>
-<p></p>
+<center>
+  <h1>MDA(Movie Database Application)</h1>
+  <h3>Please Sign In!</h3>
+</center>
+<% if user_signed_in? %>
+<h3>
+  <center>
+    <button type="button" class="btn btn-info">
+      <%= link_to 'Create Movie', new_movie_path %>
+    </button>
+    <button type="button" class="btn btn-info">
+      <%= link_to 'Movies', movies_path %>
+    </button>
+  </center>
+</h3>
+<% else %>
+
+<% end %>

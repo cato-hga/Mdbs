@@ -19,6 +19,8 @@ class MoviesController < ApplicationController
     @movie.user_id = current_user.id
 
    respond_to do |format|
+
+
        if @movie.save
          format.html { redirect_to @movie, notice: 'Ticket was successfully created.' }
          format.json { render :show, status: :created, location: @movie }
@@ -31,6 +33,15 @@ class MoviesController < ApplicationController
 
   def show
     @movie = Movie.find(params[:id])
+  end
+
+  def destroy
+    @movie = Movie.find(params[:id])
+    @movie.destroy
+    respond_to do |format|
+      format.html {redirect_to movies_url, notice: 'Movie was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   private

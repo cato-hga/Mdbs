@@ -1,10 +1,31 @@
-<h1>Search Movies</h1>
+<center><h1>Search Movies</h1></center>
 
-<%= form_tag(movies_path, :method => "get") do %>
+<center>
+  <%= form_tag(movies_path, :method => "get") do %>
   <%= text_field_tag :search, params[:search] %>
   <%= submit_tag 'Search' %>
-<% end %>
+  <% end %>
+</center>
 <br>
 <% @movies.each do |movie| %>
-  <%= link_to movie.title, movie %>
+<table>
+  <center>
+    <%= link_to movie.title, movie %><br>
+  </center>
+</table>
 <% end %>
+<br>
+<center>
+  <button type="button" class="btn btn-info">
+    <span class="glyphicon glyphicon-arrow-left" aria-hidden="true">
+    <%= link_to "Home", "/" %>
+    </span>
+  </button>
+  <br>
+  <br>
+  <button type="button" class="btn btn-info">
+    <span class="glyphicon glyphicon-pencil" aria-hidden="true">
+    <%= link_to "Add", new_movie_path %>
+    </span>
+  </button>
+</center>

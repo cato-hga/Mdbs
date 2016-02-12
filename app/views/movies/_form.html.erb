@@ -1,16 +1,17 @@
-<%= form_for(@movie) do |f| %>
+<div class="container">
+  <%= form_for(@movie) do |f| %>
   <% if @movie.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(@movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
     <ul>
-       <% @movie.errors.full_messages.each do |message| %>
-         <li><%= message %></li>
-       <% end %>
-       </ul>
-     </div>
-   <% end %>
+      <% @movie.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
 
-   <div class="field">
+  <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
   </div>
@@ -22,10 +23,15 @@
     <%= f.label :actor %><br>
     <%= f.text_field :actor %>
   </div>
-
+  <br>
   <div class="actions">
     <%= f.submit %>
   </div>
-
-  <%= link_to "Back", movies_path %>
-<% end %>
+  <br>
+  <button type="button" class="btn btn-info">
+    <span class="glyphicon glyphicon-arrow-left" aria-hidden="true">
+      <%= link_to "Back", movies_path %>
+    </span>
+  </button>
+  <% end %>
+</div>
